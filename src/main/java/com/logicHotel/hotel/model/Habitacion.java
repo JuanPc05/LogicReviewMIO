@@ -1,6 +1,7 @@
 package com.logicHotel.hotel.model;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Habitacion {
     private final int id;
@@ -60,4 +61,37 @@ public class Habitacion {
         this.precioPorNoche = nuevoPrecio;
     }
 
+    /*
+    * Equals & hashCode: Estos se usan para explicarle a java que dos habitaciones
+    * son las mismas si tienen el mismo id, con equals podemos construir un metodo
+    * que le indique esto, y con hashCode reescribimos su "espacio" para indicar
+    * el punto de la memoria
+    * */
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        /*
+        * instanceof me dice si un objeto aqui con alias de o, es el mismo
+        * como si fuera una comparacion
+         * */
+        if(!(o instanceof Habitacion that)) return false;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Habitacion{" +
+                "id=" + id +
+                ", numero=" + numero +
+                ", tipo='" + tipo + '\'' +
+                ", precio=" + precioPorNoche +
+                ", estado=" + estado +
+                '}';
+    }
 }
