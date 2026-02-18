@@ -24,6 +24,8 @@ public class Habitacion {
     public int getId() {
         return id;
     }
+
+
     public int getNumero() {
         return numero;
     }
