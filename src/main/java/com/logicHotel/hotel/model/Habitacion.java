@@ -24,20 +24,22 @@ public class Habitacion {
     public int getId() {
         return id;
     }
-
-
     public int getNumero() {
+
         return numero;
     }
     public String getTipo() {
+
         return tipo;
     }
 
     public BigDecimal getPrecioPorNoche() {
+
         return precioPorNoche;
     }
 
     public EstadoHabitacion getEstado() {
+
         return estado;
     }
 
@@ -52,7 +54,15 @@ public class Habitacion {
         estado = EstadoHabitacion.OCUPADA;
     }
 
+    public void liberar() {
+        if(estado != EstadoHabitacion.OCUPADA) {
+            throw new IllegalStateException("La habitación no está ocupada");
+        }
+        estado = EstadoHabitacion.DISPONIBLE;
+    }
+
     public void enviarMantenimiento(){
+
         estado = EstadoHabitacion.MANTENIMIENTO;
     }
 
